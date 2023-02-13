@@ -1,0 +1,14 @@
+<mat-drawer-container class="dashboard-container" autosize>
+  <!-- SIDEBAR -->
+  <mat-drawer [opened]="true" #drawer class="sidenav" mode="side">
+    <!-- MENU -->
+    <app-nav-menu></app-nav-menu>
+  </mat-drawer>
+  <!-- HEADER TOOLBAR -->
+  <app-header (toggleSidebar)="drawer.toggle()"></app-header>
+  <!-- ENVOLTURA DE PAGINAS -->
+  <app-page-wrapper>
+    <!-- OUTLET DE RUTAS -->
+    <router-outlet></router-outlet>
+  </app-page-wrapper>
+</mat-drawer-container>

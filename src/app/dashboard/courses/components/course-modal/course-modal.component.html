@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Crear curso</h1>
+<div mat-dialog-content>
+  <form class="flex flex-column" [formGroup]="courseForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Titulo</mat-label>
+      <input matInput [formControl]="titleControl">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="courseForm.value" cdkFocusInitial>
+    Ok
+  </button>
+</div>

@@ -1,0 +1,24 @@
+<!-- <header class="flex align-items-center justify-content-between px-3">
+  <button type="button" mat-mini-fab (click)="toggleSidebar.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <b style="cursor: pointer;" *ngIf="user;else templateName" routerLink="my-profile">
+    AUTENTICADO: {{ user.fullName }}
+  </b>
+  <ng-template #templateName>
+    <button routerLink="/auth/login" mat-raised-button color="primary">Iniciar sesión</button>
+  </ng-template>
+</header> -->
+
+<mat-toolbar class="flex align-items-center justify-content-between" color="primary">
+  <button type="button" mat-icon-button (click)="toggleSidebar.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <b style="cursor: pointer;" *ngIf="user | async;else templateName" routerLink="my-profile">
+    AUTENTICADO: {{ (user | async)?.fullName }}
+  </b>
+  <button (click)="authService.logOut()" color="warn" mat-flat-button>Cerrar sesión</button>
+  <ng-template #templateName>
+    <button routerLink="/auth/login" mat-flat-button color="primary">Iniciar sesión</button>
+  </ng-template>
+</mat-toolbar>
